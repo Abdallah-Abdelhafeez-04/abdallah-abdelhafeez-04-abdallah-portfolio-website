@@ -1840,25 +1840,8 @@ li {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-/* Prevent unwanted text wrapping */
-h1, h2, h3, h4, h5, h6, p, a, span {
-  white-space: nowrap;
-}
 
-/* Or limit wrapping only where needed */
-.logo h1 {
-  white-space: nowrap;
-}
 
-/* Ensure container doesn’t shrink too much */
-.container {
-  min-width: 320px;
-}
-
-/* Disable flex wrapping in header if needed */
-header .container {
-  flex-wrap: nowrap;
-}
 
 
 
