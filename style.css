@@ -1841,27 +1841,236 @@ li {
   -webkit-text-fill-color: transparent;
 }
 
+/* ==============================
+   MOBILE RESPONSIVE STYLES
+   (Fixes for screens up to 768px)
+============================== */
 
+/* --- Hamburger Menu Toggle Button --- */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  padding: 8px;
+  z-index: 200;
+}
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+/* Animate hamburger to X when open */
+.menu-toggle.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
 
+@media (max-width: 768px) {
 
+  /* --- Header & Nav --- */
+  header .container {
+    padding: 12px 20px;
+    position: relative;
+  }
 
+  .menu-toggle {
+    display: flex;
+  }
 
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, #0C0C1A, #1A1A2A);
+    padding: 20px 0;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    z-index: 150;
+    gap: 0;
+  }
 
+  .nav-links.active {
+    display: flex;
+  }
 
+  .nav-links li {
+    margin: 0;
+    text-align: center;
+  }
 
+  .nav-links li:nth-child(5) {
+    margin-left: 0;
+  }
 
+  .nav-links a {
+    display: block;
+    padding: 14px 20px;
+    font-size: 1.05rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
 
+  .logo {
+    margin-right: 0;
+  }
 
+  .logo h1 {
+    font-size: 1.3rem;
+  }
 
+  /* --- Hero Section --- */
+  .hero-section {
+    padding: 60px 0 70px;
+  }
 
+  .hero-content {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
 
+  .hero-text {
+    min-width: unset;
+    width: 100%;
+  }
 
+  .hero-text h1 {
+    font-size: 2rem;
+  }
 
+  .tagline {
+    font-size: 1.2rem;
+    white-space: normal;
+    width: auto !important;
+    overflow: visible;
+    animation: none;
+    -webkit-text-fill-color: transparent;
+  }
 
+  .hero-text h3 {
+    font-size: 1rem;
+  }
 
+  .hero-text p {
+    font-size: 0.97rem;
+  }
 
+  .profile-photo-hero {
+    width: 200px;
+    height: 200px;
+  }
 
+  .hero-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
+  .btn-group {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 
+  .social-links-hero {
+    justify-content: center;
+  }
 
+  /* --- About Section --- */
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
+  .about-text {
+    min-width: unset;
+  }
+
+  .about-image img {
+    width: 200px;
+    height: 200px;
+  }
+
+  /* --- Page Headers --- */
+  .page-header-section {
+    padding: 50px 15px 40px;
+  }
+
+  .page-header-content h1,
+  .page-header-section h1,
+  .page-header h1 {
+    font-size: 1.8rem;
+  }
+
+  /* --- All Grids collapse to single column --- */
+  .skills-grid,
+  .services-grid,
+  .testimonials-grid,
+  .achievements-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Section Headings --- */
+  .content-section h2,
+  .about-content h2,
+  .contact-section h2 {
+    font-size: 1.6rem;
+  }
+
+  /* --- Buttons --- */
+  .btn-primary,
+  .btn-secondary,
+  .btn-general {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+
+  /* --- Footer --- */
+  footer {
+    font-size: 0.85rem;
+    padding: 20px 15px;
+  }
+
+  /* --- Scroll-to-top button --- */
+  #scrollTopBtn {
+    bottom: 15px !important;
+    right: 15px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 1.7rem;
+  }
+
+  .profile-photo-hero {
+    width: 160px;
+    height: 160px;
+  }
+
+  .logo h1 {
+    font-size: 1.1rem;
+  }
+
+  .btn-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .page-header-content h1,
+  .page-header-section h1 {
+    font-size: 1.5rem;
+  }
+}
