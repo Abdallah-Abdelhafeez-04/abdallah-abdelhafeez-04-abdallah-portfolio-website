@@ -1842,20 +1842,42 @@ li {
 }
 
 
-/* ==============================
-   MOBILE FIX — nav + overflow only
-============================== */
 
-/* Hamburger hidden on desktop */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== MOBILE NAV FIX — only changes: hamburger + nav dropdown + tagline overflow ===== */
+
 .menu-toggle {
   display: none;
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
   padding: 8px;
-  z-index: 300;
   background: none;
   border: none;
+  z-index: 300;
 }
 .menu-toggle span {
   display: block;
@@ -1870,21 +1892,14 @@ li {
 .menu-toggle.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 @media (max-width: 900px) {
-  /* Show hamburger icon */
+  body { overflow-x: hidden; }
+
   .menu-toggle { display: flex !important; }
 
-  /* Header row stays flex, just relative so dropdown positions correctly */
-  header .container {
-    position: relative;
-    flex-wrap: nowrap;
-    padding: 10px 20px;
-  }
-
-  /* Logo shrinks */
+  header .container { position: relative; padding: 10px 20px; }
   .logo { margin-right: 0; }
-  .logo h1 { font-size: 1.3rem; }
+  .logo h1 { font-size: 1.4rem; }
 
-  /* Hide full nav — !important beats the duplicate desktop display:flex rules above */
   .nav-links {
     display: none !important;
     position: absolute !important;
@@ -1899,12 +1914,7 @@ li {
     gap: 0 !important;
     margin: 0 !important;
   }
-
-  /* JS adds .active to show the menu */
-  .nav-links.active {
-    display: flex !important;
-  }
-
+  .nav-links.active { display: flex !important; }
   .nav-links li { margin: 0 !important; text-align: center !important; }
   .nav-links li:nth-child(5) { margin-left: 0 !important; }
   .nav-links a {
@@ -1915,28 +1925,12 @@ li {
     white-space: normal !important;
   }
 
-  /* Fix horizontal overflow from wide hero min-width */
-  body { overflow-x: hidden; }
-  .hero-text { min-width: 0; }
-
-  /* Fix the tagline animation which breaks on narrow screens */
+  /* Fix tagline animation overflow on small screens */
   .tagline {
     white-space: normal;
     width: auto !important;
     overflow: visible;
     animation: none;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
   }
-
-  /* Stack hero vertically, centred */
-  .hero-content {
-    flex-direction: column-reverse;
-    align-items: center;
-    text-align: center;
-    gap: 30px;
-  }
-  .hero-image { width: 100%; display: flex; justify-content: center; }
-  .btn-group { justify-content: center; flex-wrap: wrap; }
-  .social-links-hero { justify-content: center; }
+  .hero-text { min-width: 0; }
 }
