@@ -1,24 +1,33 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Skills - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills - Abdallah Abdelhafeez</title>
 
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <meta name="theme-color" content="#0b0b24">
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
-    <!-- Favicon -->
-<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
-<link rel="apple-touch-icon" href="favicon.png">
-<meta name="theme-color" content="#0b0b24">
-
-
 </head>
 <body>
   <!-- Header -->
   <header>
     <div class="container">
       <div class="logo">
-        <h1>Abdallah Abdelhafeez</h1>
+        <a href="index.html"><h1>Abdallah Abdelhafeez</h1></a>
       </div>
       <nav>
         <ul class="nav-links">
@@ -26,19 +35,26 @@
           <li><a href="about.html">About</a></li>
           <li><a href="education.html">Education</a></li>
           <li><a href="skills.html" class="active">Skills</a></li>
-          <li><a href="work-experience.html">Work Experience</a></li>
+          <li><a href="work-experience.html">Experience</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="projects.html">Projects</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+        <button class="menu-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </nav>
     </div>
   </header>
 
   <!-- Page Header -->
-  <section class="page-header-section">
-    <div class="page-header-content">
-      <h1 class = "skills">My Skills</h1>
+  <section class="page-header">
+    <div class="container">
+      <h1>My Skills</h1>
       <p>A strong technical foundation that empowers me to analyze, model, and communicate data effectively.</p>
     </div>
   </section>
@@ -46,68 +62,65 @@
   <!-- Skills Content -->
   <main class="container">
     <section class="skills-grid">
-
       <!-- Programming -->
       <div class="skill-card">
-        <h3>Programming & Data Analysis</h3>
+        <h3><i class="fas fa-code" style="color:var(--accent2); margin-right:8px;"></i> Programming & Analysis</h3>
         <ul>
           <li>Python (Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn)</li>
-          <li>R (basics for statistics)</li>
-          <li>C++ & Java</li>
+          <li>R (basics for statistical computing)</li>
+          <li>C++ & Java fundamentals</li>
         </ul>
       </div>
 
-   
-
       <!-- Visualization -->
       <div class="skill-card">
-        <h3>Data Visualization</h3>
+        <h3><i class="fas fa-chart-pie" style="color:var(--accent2); margin-right:8px;"></i> Data Visualization</h3>
         <ul>
-          <li>Power BI</li>
-          <li>Tableau</li>
-          <li>Excel Dashboards</li>
+          <li>Power BI (Interactive Dashboards, DAX, KPI cards)</li>
+          <li>Tableau (Visual Analytics, Storyboards)</li>
+          <li>Excel Advanced Dashboards</li>
         </ul>
       </div>
 
       <!-- Machine Learning -->
       <div class="skill-card">
-        <h3>Machine Learning & Statistics</h3>
+        <h3><i class="fas fa-brain" style="color:var(--accent2); margin-right:8px;"></i> Machine Learning & Stats</h3>
         <ul>
           <li>Regression, Classification, Forecasting</li>
-          <li>Clustering & Predictive Analytics</li>
-          <li>Statistical Modeling</li>
-        </ul>
-      </div>
-         <!-- Databases -->
-      <div class="skill-card">
-        <h3>Databases</h3>
-        <ul>
-          <li>SQL</li>
-          
+          <li>Clustering & Customer Segmentation</li>
+          <li>Exploratory Data Analysis (EDA) & Hypothesis Testing</li>
         </ul>
       </div>
 
-      <!-- Cloud & Tools -->
+      <!-- Databases -->
       <div class="skill-card">
-        <h3>Tools & Deployment</h3>
+        <h3><i class="fas fa-database" style="color:var(--accent2); margin-right:8px;"></i> Databases & SQL</h3>
         <ul>
-          <li>MS SQL Server</li>  
-          <li>PostgreSQL</li> 
-          <li>Google Colab & Jupyter</li>
+          <li>SQL (Complex Queries, Joins, Aggregations, Subqueries)</li>
+          <li>MS SQL Server</li>
+          <li>PostgreSQL</li>
+        </ul>
+      </div>
+
+      <!-- Tools & BI -->
+      <div class="skill-card">
+        <h3><i class="fas fa-tools" style="color:var(--accent2); margin-right:8px;"></i> Tools & Deployment</h3>
+        <ul>
+          <li>Google Colab & Jupyter Notebooks</li>
           <li>Excel (PivotTables, Power Query, Power Pivot)</li>
+          <li>Git & GitHub version control</li>
         </ul>
       </div>
 
       <!-- Web Development -->
       <div class="skill-card">
-        <h3>Web Development (supporting)</h3>
+        <h3><i class="fas fa-laptop-code" style="color:var(--accent2); margin-right:8px;"></i> Supporting Web Tech</h3>
         <ul>
-          <li>HTML & CSS</li>
-          <li>JavaScript</li>
-          <li>PHP</li>
+          <li>HTML5 & CSS3 (Responsive UI design)</li>
+          <li>JavaScript (DOM manipulation, interactivity)</li>
+          <li>PHP basics</li>
         </ul>
       </div>
-
     </section>
   </main>
 
@@ -117,10 +130,8 @@
       <p>&copy; 2025 Abdallah Abdelhafeez. All Rights Reserved.</p>
     </div>
   </footer>
+
+  <!-- Scripts -->
+  <script src="javascript.js"></script>
 </body>
 </html>
-
-
-
-
-

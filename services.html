@@ -1,24 +1,33 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Services - Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Favicon -->
-<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
-<link rel="apple-touch-icon" href="favicon.png">
-<meta name="theme-color" content="#0b0b24">
- 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - Abdallah Abdelhafeez</title>
 
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <meta name="theme-color" content="#0b0b24">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Header -->
   <header>
     <div class="container">
       <div class="logo">
-        <h1>Abdallah Abdelhafeez</h1>
+        <a href="index.html"><h1>Abdallah Abdelhafeez</h1></a>
       </div>
       <nav>
         <ul class="nav-links">
@@ -26,11 +35,18 @@
           <li><a href="about.html">About</a></li>
           <li><a href="education.html">Education</a></li>
           <li><a href="skills.html">Skills</a></li>
-          <li><a href="work-experience.html">Work Experience</a></li>
-          <li><a href="Services.html" class="active">Services</a></li>
+          <li><a href="work-experience.html">Experience</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
           <li><a href="projects.html">Projects</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+        <button class="menu-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </nav>
     </div>
   </header>
@@ -38,39 +54,37 @@
   <!-- Page Header -->
   <section class="page-header">
     <div class="container">
-      <h1 class ="services">My Services</h1>
-      <p>Helping businesses and individuals unlock the power of data with tailored solutions.</p>
+      <h1>My Services</h1>
+      <p>Helping businesses and individuals unlock the power of data with customized, high-impact analytical solutions.</p>
     </div>
   </section>
 
   <!-- Services Section -->
   <main class="container">
     <section class="services-grid">
-
       <div class="service-card">
         <i class="fas fa-database"></i>
         <h3>Data Analysis</h3>
-        <p>Transforming raw data into actionable insights through cleaning, analysis, and reporting.</p>
+        <p>Transforming complex, raw datasets into clean, reliable, and actionable insights through rigorous exploratory data analysis and statistical reporting.</p>
       </div>
 
       <div class="service-card">
         <i class="fas fa-chart-line"></i>
         <h3>Data Visualization</h3>
-        <p>Creating dashboards and reports using Power BI, Tableau, and Python for clear decision-making.</p>
+        <p>Creating interactive dashboards and intuitive visual reports using Power BI, Tableau, and Python to empower rapid, informed executive decision-making.</p>
       </div>
 
       <div class="service-card">
         <i class="fas fa-robot"></i>
         <h3>Machine Learning</h3>
-        <p>Building predictive models to uncover trends and support smart business strategies.</p>
+        <p>Building predictive algorithms, customer churn models, and classification systems that uncover hidden patterns and drive competitive advantage.</p>
       </div>
 
       <div class="service-card">
         <i class="fas fa-laptop-code"></i>
-        <h3>Custom Solutions</h3>
-        <p>Providing tailored data-driven applications, scripts, and automation tools for efficiency.</p>
+        <h3>Custom Data Solutions</h3>
+        <p>Developing automated ETL pipelines, web scrapers, data cleaning scripts, and customized reporting workbooks tailored to specific business workflows.</p>
       </div>
-
     </section>
   </main>
 
@@ -80,10 +94,8 @@
       <p>&copy; 2025 Abdallah Abdelhafeez. All Rights Reserved.</p>
     </div>
   </footer>
+
+  <!-- Scripts -->
+  <script src="javascript.js"></script>
 </body>
 </html>
-
-
-
-
-
