@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -96,7 +96,12 @@
           <h3>Send a Message</h3>
           <p>Fill out the form below and I will respond to your inquiry as soon as possible.</p>
 
-          <form id="contactForm">
+          <form id="contactForm" action="https://formsubmit.co/abdallahabdelhafeez2004@gmail.com" method="POST">
+            <!-- FormSubmit Configuration -->
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://abdallah-abdelhafeez-04.github.io/abdallah-abdelhafeez-04-abdallah-portfolio-website/contact.html">
+
             <div class="form-group">
               <label for="name">Your Name *</label>
               <input type="text" id="name" name="name" placeholder="John Doe" required>
@@ -113,7 +118,7 @@
               <label for="message">Message *</label>
               <textarea id="message" name="message" rows="4" placeholder="How can I help you?" required></textarea>
             </div>
-            <button type="submit" class="form-submit-btn">
+            <button type="submit" id="submitBtn" class="form-submit-btn">
               <span>Send Message</span>
               <i class="fas fa-paper-plane"></i>
             </button>

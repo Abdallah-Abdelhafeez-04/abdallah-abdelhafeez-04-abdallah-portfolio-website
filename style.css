@@ -1284,6 +1284,13 @@ nav {
   box-shadow: 0 6px 20px rgba(72, 149, 239, 0.4);
 }
 
+.form-submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
 .form-status {
   margin-top: 15px;
   font-size: 0.95rem;
@@ -1299,6 +1306,11 @@ nav {
 .form-status.error {
   display: block;
   color: #FF3333;
+}
+
+.form-status.info {
+  display: block;
+  color: #4895ef;
 }
 
 /* --------------------------------------------------------------------------
