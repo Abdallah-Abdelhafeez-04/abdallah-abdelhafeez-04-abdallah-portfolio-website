@@ -82,6 +82,19 @@ ul, ol {
   list-style: none;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  word-break: normal;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+  line-height: 1.35;
+}
+
+p, li, span, a, label {
+  word-break: normal;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+
 .container {
   width: 92%;
   max-width: 1200px;
@@ -656,6 +669,8 @@ nav {
   font-weight: 600;
   color: #fff;
   margin-bottom: 2px;
+  line-height: 1.4;
+  text-wrap: balance;
 }
 
 .cert-issuer {
@@ -703,6 +718,7 @@ nav {
   transition: var(--transition);
   white-space: nowrap;
   margin-top: 4px;
+  flex-shrink: 0;
 }
 
 .cert-link:hover {
@@ -716,7 +732,7 @@ nav {
    -------------------------------------------------------------------------- */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 28px;
   margin-bottom: 70px;
 }
@@ -777,7 +793,7 @@ nav {
    -------------------------------------------------------------------------- */
 .experience-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 28px;
   margin-bottom: 70px;
 }
@@ -803,6 +819,8 @@ nav {
   font-size: 1.25rem;
   color: #fff;
   margin-bottom: 8px;
+  line-height: 1.35;
+  text-wrap: balance;
 }
 
 .experience-card .date {
@@ -840,7 +858,7 @@ nav {
    -------------------------------------------------------------------------- */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
   gap: 28px;
   margin-bottom: 70px;
 }
@@ -928,12 +946,14 @@ nav {
   font-size: 1.55rem;
   font-weight: 700;
   margin-bottom: 20px;
+  line-height: 1.35;
+  text-wrap: balance;
 }
 
 /* Gallery inside project card */
 .project-images {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
   gap: 14px;
   margin-bottom: 22px;
 }
@@ -1045,7 +1065,7 @@ nav {
    -------------------------------------------------------------------------- */
 .achievements-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
   gap: 28px;
   margin-bottom: 70px;
 }
@@ -1085,6 +1105,8 @@ nav {
   font-size: 1.25rem;
   color: #fff;
   margin-bottom: 12px;
+  line-height: 1.35;
+  text-wrap: balance;
 }
 
 .achievement-card p {
@@ -1110,7 +1132,7 @@ nav {
    -------------------------------------------------------------------------- */
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 28px;
   margin-bottom: 70px;
 }
@@ -1192,7 +1214,7 @@ nav {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
   gap: 20px;
 }
 
@@ -1236,8 +1258,8 @@ nav {
 .contact-card p {
   font-size: 0.92rem;
   color: var(--text-muted);
-  word-break: break-word;
-  overflow-wrap: anywhere;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 
 .contact-card a {
@@ -1535,6 +1557,19 @@ footer .container {
     grid-template-columns: 1fr;
     gap: 35px;
   }
+
+  .cert-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 20px 20px;
+  }
+
+  .cert-link {
+    width: auto;
+    align-self: flex-start;
+    margin-top: 6px;
+  }
 }
 
 /* Portrait Tablets & Large Phones (<= 768px) */
@@ -1573,6 +1608,14 @@ footer .container {
     grid-template-columns: 1fr;
   }
 
+  .experience-card,
+  .skill-card,
+  .service-card,
+  .testimonial-card,
+  .achievement-card {
+    padding: 24px 20px;
+  }
+
   .project-images {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1596,6 +1639,7 @@ footer .container {
   .cert-list li {
     flex-direction: column;
     align-items: flex-start;
+    padding: 16px 16px;
   }
 
   .cert-link {
@@ -1646,6 +1690,20 @@ footer .container {
   .btn-secondary,
   .btn-general {
     width: 100%;
+  }
+
+  .experience-card,
+  .skill-card,
+  .service-card,
+  .timeline-item,
+  .project-card,
+  .testimonial-card,
+  .achievement-card {
+    padding: 20px 15px;
+  }
+
+  .cert-list li {
+    padding: 14px 14px;
   }
 
   .project-images {
