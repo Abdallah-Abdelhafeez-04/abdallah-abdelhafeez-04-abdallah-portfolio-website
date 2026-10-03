@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abdallah Abdelhafeez - Curriculum Vitae</title>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-bg: #0C0C1A;
+      --secondary-bg: #151528;
+      --card-bg: #1A1A2E;
+      --accent: #7209B7;
+      --accent2: #4895EF;
+      --gradient: linear-gradient(135deg, #7209B7 0%, #4895EF 100%);
+      --text: #F8F9FA;
+      --text-muted: #B0B0C4;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background-color: var(--primary-bg);
+      color: var(--text);
+      font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, sans-serif;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Toolbar */
+    .cv-toolbar {
+      height: 60px;
+      background: rgba(12, 12, 26, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      z-index: 10;
+      flex-shrink: 0;
+    }
+
+    .toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.25s ease;
+    }
+
+    .btn-back:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(72, 149, 239, 0.3);
+    }
+
+    .cv-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.3px;
+    }
+
+    .cv-title span {
+      color: var(--accent2);
+      font-weight: 400;
+      font-size: 0.9rem;
+    }
+
+    .toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gradient);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 15px rgba(114, 9, 183, 0.3);
+    }
+
+    .btn-download:hover {
+      filter: brightness(1.15);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(72, 149, 239, 0.4);
+    }
+
+    .btn-print {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .btn-print:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--accent2);
+    }
+
+    /* PDF Frame Container */
+    .pdf-container {
+      flex: 1 1 auto;
+      width: 100%;
+      height: calc(100vh - 60px);
+      background: #1e1e2f;
+      position: relative;
+    }
+
+    .pdf-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    .fallback-card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    }
+
+    .fallback-card p {
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 600px) {
+      .cv-toolbar {
+        padding: 0 12px;
+      }
+      .cv-title span {
+        display: none;
+      }
+      .cv-title {
+        font-size: 0.95rem;
+      }
+      .btn-print {
+        display: none;
+      }
+      .btn-download {
+        padding: 6px 14px;
+        font-size: 0.85rem;
+      }
+      .btn-back {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Navigation & Actions Bar -->
+  <header class="cv-toolbar">
+    <div class="toolbar-left">
+      <a href="../index.html" class="btn-back">
+        <i class="fas fa-arrow-left"></i>
+        <span>Portfolio</span>
+      </a>
+      <h1 class="cv-title">Abdallah Abdelhafeez <span>– Data Analyst CV</span></h1>
+    </div>
+    <div class="toolbar-right">
+      <button class="btn-print" onclick="printCv()" title="Print CV">
+        <i class="fas fa-print"></i>
+        <span>Print</span>
+      </button>
+      <a href="Abdallah_Abdelhafeez_Data_Analyst_CV.pdf" download="Abdallah_Abdelhafeez_Data_Analyst_CV.pdf" class="btn-download" title="Download CV to device">
+        <i class="fas fa-download"></i>
+        <span>Download PDF</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- PDF Display Area -->
+  <main class="pdf-container">
+    <object data="Abdallah_Abdelhafeez_Data_Analyst_CV.pdf#view=FitH" type="application/pdf" class="pdf-frame" id="pdfObject">
+      <iframe src="Abdallah_Abdelhafeez_Data_Analyst_CV.pdf#view=FitH" class="pdf-frame" id="pdfIframe">
+        <div class="fallback-card">
+          <p>Your browser could not preview the PDF directly.</p>
+          <a href="Abdallah_Abdelhafeez_Data_Analyst_CV.pdf" download class="btn-download">
+            <i class="fas fa-download"></i> Download CV Directly
+          </a>
+        </div>
+      </iframe>
+    </object>
+  </main>
+
+  <script>
+    function printCv() {
+      const iframe = document.getElementById('pdfIframe');
+      try {
+        if (iframe && iframe.contentWindow) {
+          iframe.contentWindow.print();
+          return;
+        }
+      } catch (e) {
+        // Fallback
+      }
+      window.print();
+    }
+  </script>
+</body>
+</html>
