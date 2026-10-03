@@ -540,16 +540,19 @@ nav {
   flex: 1.2;
 }
 
-.about-text h2 {
-  font-size: 2.2rem;
+.about-text h2,
+.journey-title {
+  font-size: clamp(1.35rem, 5vw, 2.2rem);
   margin-bottom: 20px;
   background: var(--gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
+  white-space: nowrap;
 }
 
-.about-text h2::after {
+.about-text h2::after,
+.journey-title::after {
   content: '';
   display: block;
   width: 50px;
@@ -1210,71 +1213,99 @@ nav {
    15. Contact Page & Interactive Form
    -------------------------------------------------------------------------- */
 .contact-section {
-  padding: 40px 0 80px;
+  padding: 30px 0 60px;
 }
 
 .contact-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  margin-top: 30px;
-  align-items: start;
+  margin-top: 25px;
+  align-items: stretch;
 }
 
 .contact-cards-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  height: 100%;
 }
 
 .contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+  justify-content: space-between;
 }
 
 .contact-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  padding: 26px 20px;
+  padding: 20px 24px;
   border-radius: var(--radius-md);
-  text-align: center;
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  gap: 20px;
+  text-align: left;
+  flex: 1;
 }
 
 .contact-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   border-color: var(--card-border-hover);
   box-shadow: var(--shadow-md);
 }
 
 .contact-card i {
-  font-size: 2.2rem;
+  font-size: 1.55rem;
   color: var(--accent2);
-  margin-bottom: 12px;
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(72, 149, 239, 0.1);
+  border: 1px solid rgba(72, 149, 239, 0.2);
+  border-radius: var(--radius-md);
+  margin-bottom: 0;
   transition: var(--transition);
+  flex-shrink: 0;
 }
 
 .contact-card:hover i {
-  transform: scale(1.15);
-  color: var(--accent);
+  transform: scale(1.08);
+  background: var(--gradient);
+  color: #fff;
+  border-color: transparent;
+}
+
+.contact-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  flex: 1;
 }
 
 .contact-card h3 {
-  font-size: 1.15rem;
+  font-size: 1.08rem;
   color: #fff;
-  margin-bottom: 8px;
+  margin-bottom: 0;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .contact-card p {
   font-size: 0.92rem;
   color: var(--text-muted);
+  margin-bottom: 0;
   word-break: normal;
   overflow-wrap: break-word;
+  line-height: 1.4;
 }
 
 .contact-card a {
@@ -1578,6 +1609,11 @@ footer .container {
     gap: 40px;
   }
 
+  .about-text h2::after,
+  .journey-title::after {
+    margin: 8px auto 0;
+  }
+
   .about-image img {
     width: 250px;
     height: 250px;
@@ -1586,6 +1622,20 @@ footer .container {
   .contact-layout {
     grid-template-columns: 1fr;
     gap: 35px;
+    align-items: start;
+  }
+
+  .contact-cards-container {
+    height: auto;
+  }
+
+  .contact-grid {
+    gap: 14px;
+    height: auto;
+  }
+
+  .contact-card {
+    flex: unset;
   }
 
   .cert-list li {
@@ -1875,7 +1925,23 @@ footer .container {
   }
 
   .contact-grid {
-    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .contact-card {
+    padding: 15px 16px;
+    gap: 14px;
+  }
+
+  .contact-card i {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    font-size: 1.3rem;
+  }
+
+  .contact-card h3 {
+    font-size: 1rem;
   }
 
   .contact-card p {
