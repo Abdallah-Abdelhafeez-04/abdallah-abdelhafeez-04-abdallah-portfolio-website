@@ -40,7 +40,7 @@
 
     /* Top Toolbar */
     .cv-toolbar {
-      height: 60px;
+      height: 64px;
       background: rgba(12, 12, 26, 0.96);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
@@ -51,6 +51,7 @@
       padding: 0 20px;
       z-index: 10;
       flex-shrink: 0;
+      gap: 12px;
     }
 
     .toolbar-left {
@@ -72,6 +73,7 @@
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.08);
       transition: all 0.25s ease;
+      white-space: nowrap;
     }
 
     .btn-back:hover {
@@ -85,12 +87,55 @@
       font-weight: 600;
       color: #fff;
       letter-spacing: 0.3px;
+      white-space: nowrap;
     }
 
     .cv-title span {
       color: var(--accent2);
       font-weight: 400;
       font-size: 0.9rem;
+    }
+
+    /* Toolbar Center - Segmented Toggle */
+    .toolbar-center {
+      display: flex;
+      align-items: center;
+    }
+
+    .cv-toggle-group {
+      display: inline-flex;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 9999px;
+      padding: 3px;
+      gap: 3px;
+    }
+
+    .cv-toggle-btn {
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 7px 16px;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      white-space: nowrap;
+    }
+
+    .cv-toggle-btn:hover {
+      color: #fff;
+    }
+
+    .cv-toggle-btn.active {
+      background: var(--gradient);
+      color: #fff;
+      font-weight: 600;
+      box-shadow: 0 2px 12px rgba(114, 9, 183, 0.4);
     }
 
     .toolbar-right {
@@ -114,6 +159,7 @@
       cursor: pointer;
       transition: all 0.25s ease;
       box-shadow: 0 4px 15px rgba(114, 9, 183, 0.3);
+      white-space: nowrap;
     }
 
     .btn-download:hover {
@@ -147,7 +193,7 @@
     .pdf-container {
       flex: 1 1 auto;
       width: 100%;
-      height: calc(100vh - 60px);
+      height: calc(100vh - 64px);
       background: #1e1e2f;
       position: relative;
     }
@@ -180,29 +226,43 @@
       font-size: 0.95rem;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 850px) {
       .cv-toolbar {
-        padding: 0 12px;
+        flex-wrap: wrap;
+        height: auto;
+        padding: 10px 14px;
+        gap: 8px;
+      }
+      .toolbar-center {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        padding-top: 4px;
+      }
+      .pdf-container {
+        height: calc(100vh - 105px);
       }
       .cv-title span {
         display: none;
       }
-      .cv-title {
-        font-size: 0.95rem;
+    }
+
+    @media (max-width: 550px) {
+      .cv-toggle-btn {
+        font-size: 0.78rem;
+        padding: 6px 10px;
       }
       .btn-print {
         display: none;
       }
       .btn-download {
-        padding: 6px 14px;
-        font-size: 0.85rem;
-      }
-      .btn-back {
-        padding: 6px 10px;
-        font-size: 0.85rem;
+        padding: 6px 12px;
+        font-size: 0.82rem;
       }
     }
   </style>
+  <!-- Google Analytics 4 & Visitor Tracking -->
+  <script src="analytics.js"></script>
 </head>
 <body>
   <!-- Top Navigation & Actions Bar -->
@@ -212,14 +272,27 @@
         <i class="fas fa-arrow-left"></i>
         <span>Portfolio</span>
       </a>
-      <h1 class="cv-title">Abdallah Abdelhafeez <span>– Data Analyst CV</span></h1>
+      <h1 class="cv-title">Abdallah Abdelhafeez <span id="cvTypeLabel">– Academic CV</span></h1>
     </div>
+
+    <!-- CV Version Switcher -->
+    <div class="toolbar-center">
+      <div class="cv-toggle-group">
+        <button class="cv-toggle-btn active" data-type="academic" onclick="setCv('academic')">
+          <i class="fas fa-graduation-cap"></i> Academic CV (TA / Demonstrator)
+        </button>
+        <button class="cv-toggle-btn" data-type="data_analyst" onclick="setCv('data_analyst')">
+          <i class="fas fa-chart-line"></i> Data Analyst CV
+        </button>
+      </div>
+    </div>
+
     <div class="toolbar-right">
       <button class="btn-print" onclick="printCv()" title="Print CV">
         <i class="fas fa-print"></i>
         <span>Print</span>
       </button>
-      <a href="CVs/Abdallah_Abdelhafeez_Data_Analyst_CV.pdf" download="Abdallah_Abdelhafeez_Data_Analyst_CV.pdf" class="btn-download" title="Download CV to device">
+      <a href="CVs/Abdallah_Abdelhafeez_Academic_CV.pdf" download="Abdallah_Abdelhafeez_Academic_CV.pdf" class="btn-download" id="btnDownload" title="Download CV to device">
         <i class="fas fa-download"></i>
         <span>Download PDF</span>
       </a>
@@ -228,11 +301,11 @@
 
   <!-- PDF Display Area -->
   <main class="pdf-container">
-    <object data="CVs/Abdallah_Abdelhafeez_Data_Analyst_CV.pdf#view=FitH" type="application/pdf" class="pdf-frame" id="pdfObject">
-      <iframe src="CVs/Abdallah_Abdelhafeez_Data_Analyst_CV.pdf#view=FitH" class="pdf-frame" id="pdfIframe">
+    <object data="CVs/Abdallah_Abdelhafeez_Academic_CV.pdf#view=FitH" type="application/pdf" class="pdf-frame" id="pdfObject">
+      <iframe src="CVs/Abdallah_Abdelhafeez_Academic_CV.pdf#view=FitH" class="pdf-frame" id="pdfIframe">
         <div class="fallback-card">
           <p>Your browser could not preview the PDF directly.</p>
-          <a href="CVs/Abdallah_Abdelhafeez_Data_Analyst_CV.pdf" download class="btn-download">
+          <a href="CVs/Abdallah_Abdelhafeez_Academic_CV.pdf" download id="fallbackDownload" class="btn-download">
             <i class="fas fa-download"></i> Download CV Directly
           </a>
         </div>
@@ -241,6 +314,42 @@
   </main>
 
   <script>
+    const cvConfig = {
+      academic: {
+        title: '– Academic CV (Teaching Assistant / Demonstrator)',
+        file: 'CVs/Abdallah_Abdelhafeez_Academic_CV.pdf',
+        name: 'Abdallah_Abdelhafeez_Academic_CV.pdf'
+      },
+      data_analyst: {
+        title: '– Data Analyst CV',
+        file: 'CVs/Abdallah_Abdelhafeez_Data_Analyst_CV.pdf',
+        name: 'Abdallah_Abdelhafeez_Data_Analyst_CV.pdf'
+      }
+    };
+
+    function setCv(type) {
+      const cfg = cvConfig[type];
+      if (!cfg) return;
+
+      document.getElementById('cvTypeLabel').textContent = cfg.title;
+      document.getElementById('pdfObject').setAttribute('data', cfg.file + '#view=FitH');
+      document.getElementById('pdfIframe').setAttribute('src', cfg.file + '#view=FitH');
+
+      const dlBtn = document.getElementById('btnDownload');
+      dlBtn.setAttribute('href', cfg.file);
+      dlBtn.setAttribute('download', cfg.name);
+
+      const fbBtn = document.getElementById('fallbackDownload');
+      if (fbBtn) {
+        fbBtn.setAttribute('href', cfg.file);
+        fbBtn.setAttribute('download', cfg.name);
+      }
+
+      document.querySelectorAll('.cv-toggle-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.type === type);
+      });
+    }
+
     function printCv() {
       const iframe = document.getElementById('pdfIframe');
       try {
@@ -248,9 +357,7 @@
           iframe.contentWindow.print();
           return;
         }
-      } catch (e) {
-        // Fallback
-      }
+      } catch (e) {}
       window.print();
     }
   </script>

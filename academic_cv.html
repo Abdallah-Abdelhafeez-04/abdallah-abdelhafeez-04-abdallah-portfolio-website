@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Abdallah Abdelhafeez Saber - Academic Curriculum Vitae</title>
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 5.5mm 10.5mm 5.5mm 10.5mm;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+    color: #111827;
+    background-color: #ffffff;
+    font-size: 9.8pt;
+    line-height: 1.27;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Academic Palette */
+  :root {
+    --primary: #0a2540;       /* Academic Oxford Navy */
+    --primary-blue: #1d4ed8;  /* Royal Blue Accent */
+    --text-dark: #111827;     /* Pure Dark Text */
+    --text-muted: #374151;    /* Slate Gray */
+    --border-dark: #0a2540;   /* Section Rule */
+    --honor-green: #047857;   /* Distinction Green */
+    --tag-gold: #92400e;      /* Leadership Tag Gold */
+  }
+
+  /* Header Section - Clean Title Case, No All-Caps */
+  header {
+    text-align: center;
+    border-bottom: 2px solid var(--border-dark);
+    padding-bottom: 3px;
+    margin-bottom: 4.5px;
+  }
+
+  h1.candidate-name {
+    font-size: 21pt;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1px;
+    letter-spacing: 0.2px;
+  }
+
+  .candidate-title {
+    font-size: 10.6pt;
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin-bottom: 2.5px;
+  }
+
+  .contact-info {
+    font-size: 9.5pt;
+    color: var(--text-muted);
+    line-height: 1.28;
+  }
+
+  .contact-info a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .pipe-sep {
+    color: #9ca3af;
+    margin: 0 4px;
+  }
+
+  /* Section Styling - Strict ATS Title Case */
+  .section {
+    margin-bottom: 3.5px;
+  }
+
+  h2.section-title {
+    font-size: 10.9pt;
+    font-weight: 700;
+    color: var(--primary);
+    border-bottom: 1.3px solid var(--border-dark);
+    padding-bottom: 1px;
+    margin-bottom: 2.5px;
+    letter-spacing: 0.2px;
+  }
+
+  /* Statements */
+  p.statement-text {
+    font-size: 9.5pt;
+    color: var(--text-dark);
+    text-align: justify;
+    line-height: 1.28;
+  }
+
+  /* Entry Layout */
+  .entry-block {
+    margin-bottom: 2.5px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .entry-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .entry-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .entry-heading {
+    font-weight: 700;
+    font-size: 10pt;
+    color: var(--primary);
+  }
+
+  .entry-dates {
+    font-size: 9.2pt;
+    font-weight: 700;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .entry-subheading {
+    display: flex;
+    justify-content: space-between;
+    font-size: 9.3pt;
+    color: var(--text-muted);
+    margin-bottom: 1px;
+  }
+
+  .entry-subheading .degree-title {
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+
+  .entry-subheading .grade-tag {
+    font-weight: 700;
+    color: var(--honor-green);
+  }
+
+  .role-tag {
+    font-weight: 700;
+    color: var(--tag-gold);
+  }
+
+  /* Bullets - Clear, readable, larger text */
+  ul.entry-bullets {
+    list-style-type: disc;
+    padding-left: 15px;
+    margin-top: 1px;
+  }
+
+  ul.entry-bullets li {
+    font-size: 9.35pt;
+    color: var(--text-dark);
+    line-height: 1.25;
+    margin-bottom: 1px;
+    text-align: justify;
+  }
+
+  ul.entry-bullets li strong {
+    color: #0f172a;
+    font-weight: 700;
+  }
+
+  /* Teaching Modules - 2 Columns */
+  .teaching-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px 12px;
+    margin-top: 1.5px;
+  }
+
+  .teaching-box {
+    font-size: 9.3pt;
+    line-height: 1.22;
+    color: var(--text-dark);
+  }
+
+  .teaching-box strong {
+    color: var(--primary);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.5px;
+  }
+
+  .teaching-box span {
+    color: var(--text-muted);
+    font-size: 8.9pt;
+  }
+
+  /* Certifications List - 2 Columns */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px 12px;
+    margin-top: 1.5px;
+  }
+
+  .cert-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 9.2pt;
+    border-bottom: 1px dotted #e5e7eb;
+    padding-bottom: 0.5px;
+  }
+
+  .cert-item .cert-name {
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+
+  .cert-item .cert-provider {
+    font-size: 8.7pt;
+    color: var(--text-muted);
+  }
+
+  .cert-item .cert-year {
+    font-weight: 700;
+    color: var(--text-muted);
+    font-size: 8.9pt;
+    white-space: nowrap;
+    margin-left: 6px;
+  }
+
+  /* Skills Table */
+  .skills-list {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5px;
+  }
+
+  .skills-list tr {
+    border-bottom: 1px solid #f3f4f6;
+  }
+
+  .skills-list td {
+    padding: 1.2px 0;
+    vertical-align: top;
+    font-size: 9.25pt;
+    line-height: 1.22;
+  }
+
+  .skills-list td.skill-group {
+    width: 24%;
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  .skills-list td.skill-desc {
+    width: 76%;
+    color: var(--text-dark);
+  }
+
+  .repo-link {
+    color: var(--primary-blue);
+    text-decoration: underline;
+    font-size: 8.9pt;
+    font-weight: 600;
+  }
+
+  /* Page Break */
+  .page-break {
+    page-break-before: always;
+    break-before: always;
+  }
+</style>
+  <!-- Google Analytics 4 & Visitor Tracking -->
+  <script src="analytics.js"></script>
+</head>
+<body>
+
+  <!-- ==================== PAGE 1 ==================== -->
+  <header>
+    <h1 class="candidate-name">Abdallah Abdelhafeez Saber</h1>
+    <div class="candidate-title">Prospective Teaching Assistant / Demonstrator in Computer Science & Information Technology</div>
+    <div class="contact-info">
+      Fayoum, Egypt <span class="pipe-sep">|</span> +20 115 017 0744 <span class="pipe-sep">|</span> <a href="mailto:abdallahabdelhafeez2004@gmail.com">abdallahabdelhafeez2004@gmail.com</a> <span class="pipe-sep">|</span> <a href="https://linkedin.com/in/abdallah-abdelhafeez-197404374/" target="_blank">LinkedIn</a> <span class="pipe-sep">|</span> <a href="https://github.com/Abdallah-Abdelhafeez-04" target="_blank">GitHub</a> <span class="pipe-sep">|</span> <a href="https://abdallah-abdelhafeez-04.github.io/abdallah-abdelhafeez-04-abdallah-portfolio-website/" target="_blank">Portfolio Website</a>
+    </div>
+  </header>
+
+  <!-- Academic Profile & Objective -->
+  <section class="section">
+    <h2 class="section-title">Academic Profile & Objective</h2>
+    <p class="statement-text">
+      High-achieving Computer Science and Information Technology graduate (<strong>Cumulative GPA: 3.553 / 4.00, Very Good with Honors</strong>; <strong>Senior Graduation Project Grade: Excellent / Distinction</strong>) and proven <strong>Team Leader & Founder</strong> across university capstones and regional hackathons. Demonstrates strong command of computer programming, database architectures, artificial intelligence, computer vision, and software engineering. Passionate about university pedagogy, laboratory instruction, student mentorship, and academic course development. Dedicated to pursuing postgraduate studies (M.Sc.) in Intelligent Systems, Generative AI, and Applied Machine Learning while actively supporting departmental teaching excellence and academic research.
+    </p>
+  </section>
+
+  <!-- Education & Academic Standing -->
+  <section class="section">
+    <h2 class="section-title">Education & Academic Standing</h2>
+    <div class="entry-block">
+      <div class="entry-top">
+        <span class="entry-heading">Sinai University, Faculty of Information Technology and Computer Science</span>
+        <span class="entry-dates">2022 – 2026</span>
+      </div>
+      <div class="entry-subheading">
+        <span class="degree-title">Bachelor of Information Technology and Computer Science (Kantara Branch, Egypt)</span>
+        <span class="grade-tag">Cumulative GPA: 3.553 / 4.00 (Very Good with Honors)</span>
+      </div>
+      <ul class="entry-bullets">
+        <li><strong>Senior Graduation Project:</strong> <em>RefereeX – AI-Powered Football Officiating Platform</em> | <strong>Role: Founder & Team Leader</strong> | <strong>Grade: Excellent (Distinction / A+)</strong>. Led the project team to build an automated decision-support pipeline combining YOLO, Segment Anything Model 2 (SAM 2), and Google Gemini 2.0 Flash Multimodal VLM for real-time video analytics.</li>
+        <li><strong>Relevant Coursework:</strong> Data Structures and Algorithms, Object-Oriented Programming (C++, Java), Database Management Systems and SQL, Operating Systems, Computer Networks (Cisco CCNA curriculum), Software Engineering, Artificial Intelligence, Machine Learning, Deep Learning, Probability and Statistics, Discrete Mathematics, Web Technologies, Computer Architecture.</li>
+        <li><strong>Academic Distinction:</strong> Maintained consistent high academic standing on the Faculty Honor Roll across all four academic years.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Teaching Competencies & Laboratory Modules -->
+  <section class="section">
+    <h2 class="section-title">Teaching Competencies & Laboratory Modules</h2>
+    <div class="teaching-grid">
+      <div class="teaching-box">
+        <strong>1. Programming & Algorithms</strong>
+        <span>CS101 Intro to Programming (Python, C++), OOP (C++, Java), Data Structures, Algorithms, Problem Solving.</span>
+      </div>
+      <div class="teaching-box">
+        <strong>2. Database Systems & SQL</strong>
+        <span>Relational Database Management (RDBMS), SQL Querying and Optimization, Normalization, MS SQL Server, PostgreSQL.</span>
+      </div>
+      <div class="teaching-box">
+        <strong>3. AI & Machine Learning</strong>
+        <span>Introduction to AI, Supervised and Unsupervised Learning, Deep Learning, Computer Vision (OpenCV), Prompt Engineering.</span>
+      </div>
+      <div class="teaching-box">
+        <strong>4. Data Science & Statistics</strong>
+        <span>Data Wrangling, Exploratory Data Analysis (Pandas, NumPy), Statistical Computing in R, Power BI, Advanced Excel.</span>
+      </div>
+      <div class="teaching-box">
+        <strong>5. Computer Networks & IT Systems</strong>
+        <span>Network Fundamentals (TCP/IP, Routing, Switching, VLANs), Cisco Packet Tracer, Windows and Linux System Administration.</span>
+      </div>
+      <div class="teaching-box">
+        <strong>6. Software Engineering & Web Tech</strong>
+        <span>Web Fundamentals (HTML5, CSS3, JavaScript), Full-Stack Systems (PHP, Flask, FastAPI), Git and GitHub Version Control.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Interests & Focus Areas -->
+  <section class="section">
+    <h2 class="section-title">Research Interests & Focus Areas</h2>
+    <ul class="entry-bullets">
+      <li><strong>Generative AI & Multimodal LLMs:</strong> Retrieval-Augmented Generation (RAG) architectures, dense embeddings, vector databases (ChromaDB), hallucination reduction, and explainable AI in healthcare and decision support.</li>
+      <li><strong>Applied Computer Vision & Video Analytics:</strong> Real-time object detection (YOLO), promptable instance segmentation (Segment Anything Model 2 - SAM 2), and vision-language integration for automated spatial reasoning.</li>
+      <li><strong>Predictive Analytics & Model Benchmarking:</strong> Comparative algorithmic evaluation, ensemble techniques, high-dimensional feature selection, and data-driven healthcare predictive modeling.</li>
+    </ul>
+  </section>
+
+  <!-- Academic & Research Projects (Part 1) -->
+  <section class="section">
+    <h2 class="section-title">Academic & Research Projects</h2>
+    
+    <div class="entry-block">
+      <div class="entry-top">
+        <span class="entry-heading">RefereeX — AI-Powered Football Officiating Platform <span class="role-tag">[Founder & Team Leader | Grade: Excellent]</span></span>
+        <span class="entry-dates">2026 | <a href="https://github.com/Abdallah-Abdelhafeez-04/RefereeX-Graduation-Project" target="_blank" class="repo-link">GitHub</a></span>
+      </div>
+      <div class="entry-subheading">
+        <span>Competition: Canal Startup Sprint Hackathon | Technologies: Python, Flask, YOLO, SAM 2, Gemini 2.0 Flash VLM, OpenCV</span>
+      </div>
+      <ul class="entry-bullets">
+        <li>Founded and led the project team developing an AI sports analytics venture, participating in the <strong>Canal Startup Sprint Hackathon</strong> and earning an <strong>Excellent (Distinction / A+)</strong> evaluation grade from the university examination committee.</li>
+        <li>Managed the multi-object tracking pipeline using YOLO for player and ball detection, and integrated Segment Anything Model 2 (SAM 2) for zero-shot player segmentation and jersey-color team clustering.</li>
+        <li>Integrated Google Gemini 2.0 Flash multimodal vision-language model to evaluate complex spatio-temporal game rules (fouls, offside lines, ball-out-of-bounds) with explainable natural language rationales.</li>
+      </ul>
+    </div>
+
+    <div class="entry-block">
+      <div class="entry-top">
+        <span class="entry-heading">LungGuide AI — Evidence-Grounded Medical Screening Assistant <span class="role-tag">[Team Leader & AI Lead]</span></span>
+        <span class="entry-dates">2026 | <a href="https://github.com/Abdallah-Abdelhafeez-04/lungguide-ai" target="_blank" class="repo-link">GitHub</a></span>
+      </div>
+      <div class="entry-subheading">
+        <span>Competition: CREATIVA AI Hackathon | Technologies: LangChain, Python, FastAPI, React, TypeScript, ChromaDB, Gemini</span>
+      </div>
+      <ul class="entry-bullets">
+        <li>Led a team of student developers during the 40-hour intensive hackathon to architect an evidence-grounded Retrieval-Augmented Generation (RAG) assistant for lung cancer screening guidelines, delivering source-cited answers to minimize hallucinations.</li>
+        <li>Engineered document ingestion, recursive text splitting, dense embedding generation, ChromaDB vector indexing, semantic search, evidence relevance scoring, and safety guardrails for non-grounded queries.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 2 ==================== -->
+  <div class="page-break"></div>
+
+  <!-- Academic & Research Projects (Continued) -->
+  <section class="section" style="margin-top: 1px;">
+    <h2 class="section-title">Academic & Research Projects (Continued)</h2>
+
+    <div class="entry-block">
+      <div class="entry-top">
+        <span class="entry-heading">Deep Learning Traffic Sign Recognition System <span class="role-tag">[Lead Developer]</span></span>
+        <span class="entry-dates">2026 | <a href="https://github.com/Abdallah-Abdelhafeez-04/Traffic-Sign-Recognition" target="_blank" class="repo-link">GitHub</a></span>
+      </div>
+      <div class="entry-subheading">
+        <span>Technologies: Python, TensorFlow, Keras, CNN, OpenCV, Matplotlib, Google Colab</span>
+      </div>
+      <ul class="entry-bullets">
+        <li>Designed, trained, and evaluated a deep Convolutional Neural Network (CNN) architecture for multi-class traffic sign image classification.</li>
+        <li>Implemented image normalization, histogram equalization, data augmentation, dropout regularization, and batch normalization, achieving high classification accuracy and robustness across unseen test splits.</li>
+      </ul>
+    </div>
+
+    <div class="entry-block">
+      <div class="entry-top">
+        <span class="entry-heading">Comparative Predictive Modeling & Customer Churn Analysis <span class="role-tag">[Lead Analyst]</span></span>
+        <span class="entry-dates">2025 | <a href="https://github.com/Abdallah-Abdelhafeez-04/Customer-Churn-Prediction-Codeveda-Third-Task-Predictive-Modeling" target="_blank" class="repo-link">GitHub</a></span>
+      </div>
+      <div class="entry-subheading">
+        <span>Technologies: Python, Scikit-learn, Pandas, NumPy, Matplotlib, Seaborn, Jupyter Notebook</span>
+      </div>
+      <ul class="entry-bullets">
+        <li>Conducted rigorous empirical benchmarking across classification models: Logistic Regression, Decision Trees, Random Forest, Gradient Boosting, and Support Vector Machines to predict customer attrition.</li>
+        <li>Handled class imbalance, performed hyperparameter tuning via GridSearchCV, and evaluated models using Confusion Matrices, ROC-AUC curves, Precision-Recall, and Gini Feature Importance.</li>
+      </ul>
+    </div>
+
+    <div class="entry-block">
+      <div class="entry-top">
+        <span class="entry-heading">Enterprise Relational Database Architecture & Query Optimization (SalesDB) <span class="role-tag">[Database Architect]</span></span>
+        <span class="entry-dates">2025 | <a href="https://github.com/Abdallah-Abdelhafeez-04/Analyzing-Sales-database-using-SQL-" target="_blank" class="repo-link">GitHub</a></span>
+      </div>
+      <div class="entry-subheading">
+        <span>Technologies: Microsoft SQL Server (SSMS), T-SQL, Relational Schema Design, Execution Plan Profiling</span>
+      </div>
+      <ul class="entry-bullets">
+        <li>Architected a normalized multi-table relational schema enforcing entity integrity, foreign key constraints, and transactional consistency; authored stored procedures, triggers, views, and optimized query execution plans through strategic indexing.</li>
+      </ul>
+    </div>
+
+    <div class="entry-block">
+      <div class="entry-top">
+        <span class="entry-heading">SkillUp — Web-Based Dynamic Learning Management System <span class="role-tag">[Founder & Full-Stack Developer]</span></span>
+        <span class="entry-dates">2025 | <a href="https://github.com/Abdallah-Abdelhafeez-04/SkillUp-Online-Learning-Platform" target="_blank" class="repo-link">GitHub</a></span>
+      </div>
+      <div class="entry-subheading">
+        <span>Technologies: PHP, JavaScript, SQL, HTML5, CSS3, Responsive Web Architecture</span>
+      </div>
+      <ul class="entry-bullets">
+        <li>Founded and developed an e-learning platform featuring role-based authentication (instructors and students), modular syllabus management, progress tracking dashboards, and automated certificate generation upon course completion.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Fellowships & Government Initiatives -->
+  <section class="section">
+    <h2 class="section-title">Fellowships & National Initiatives</h2>
+
+    <div class="entry-block">
+      <div class="entry-top">
+        <span class="entry-heading">National Telecommunication Institute (NTI) — Digital Egypt Youth Program</span>
+        <span class="entry-dates">Aug 2026 – Sep 2026</span>
+      </div>
+      <div class="entry-subheading">
+        <span>IT Technical Support Specialist Track | Student ID: 241137</span>
+        <span class="grade-tag">Graduation Score: 99% (Distinction with Highest Honors)</span>
+      </div>
+      <ul class="entry-bullets">
+        <li>Completed 120 intensive instructional hours (90 technical hours and 30 professional soft skills hours) covering computer hardware architectures, network protocols (TCP/IP, DNS, DHCP), Windows system administration, troubleshooting, and lab management.</li>
+      </ul>
+    </div>
+
+    <div class="entry-block">
+      <div class="entry-top">
+        <span class="entry-heading">Digital Egypt Pioneers Program (DEPI / MCIT)</span>
+        <span class="entry-dates">Jun 2025 – Dec 2025</span>
+      </div>
+      <div class="entry-subheading">
+        <span>Data Analyst Specialist Track — Ministry of Communications and Information Technology</span>
+      </div>
+      <ul class="entry-bullets">
+        <li>Completed advanced capacity-building coursework in end-to-end data pipelines, ETL processes, Power BI dashboard modeling, DAX measures, relational SQL querying, and business analytics.</li>
+      </ul>
+    </div>
+
+    <div class="entry-block">
+      <div class="entry-top">
+        <span class="entry-heading">Orange Digital Center, CREATIVA, ITIDA & TIEC AI Hackathon</span>
+        <span class="entry-dates">Aug 2025 / 2026</span>
+      </div>
+      <div class="entry-subheading">
+        <span>Intensive AI Training & Hackathon Accelerator | Role: Team Leader</span>
+        <span class="grade-tag">Evaluation Score: 81.5%</span>
+      </div>
+      <ul class="entry-bullets">
+        <li>Participated in an intensive 40-hour AI residency developing healthcare AI prototypes; led an engineering team to design and pitch LungGuide AI under faculty and industry mentorship.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Certifications & Specialized Courses -->
+  <section class="section">
+    <h2 class="section-title">Certifications & Specialized Courses</h2>
+    <div class="cert-grid">
+      <div class="cert-item">
+        <div>
+          <div class="cert-name">Building LLM Applications with Prompt Engineering</div>
+          <div class="cert-provider">NVIDIA Deep Learning Institute (DLI)</div>
+        </div>
+        <div class="cert-year">2026</div>
+      </div>
+      <div class="cert-item">
+        <div>
+          <div class="cert-name">AI for All: From Basics to GenAI Practice</div>
+          <div class="cert-provider">NVIDIA Academy</div>
+        </div>
+        <div class="cert-year">2026</div>
+      </div>
+      <div class="cert-item">
+        <div>
+          <div class="cert-name">Cisco CCNAv7 (Networking Fundamentals)</div>
+          <div class="cert-provider">Cisco Networking Academy</div>
+        </div>
+        <div class="cert-year">2024</div>
+      </div>
+      <div class="cert-item">
+        <div>
+          <div class="cert-name">Python for Data Science (Cognitive AI)</div>
+          <div class="cert-provider">IBM Cognitive Class</div>
+        </div>
+        <div class="cert-year">2025</div>
+      </div>
+      <div class="cert-item">
+        <div>
+          <div class="cert-name">SQL (Intermediate) & SQL (Basic) Verified</div>
+          <div class="cert-provider">HackerRank</div>
+        </div>
+        <div class="cert-year">2025</div>
+      </div>
+      <div class="cert-item">
+        <div>
+          <div class="cert-name">Intermediate SQL & Introduction to R</div>
+          <div class="cert-provider">DataCamp</div>
+        </div>
+        <div class="cert-year">2025–2026</div>
+      </div>
+      <div class="cert-item">
+        <div>
+          <div class="cert-name">Python Programming Basics</div>
+          <div class="cert-provider">ITI Mahara-Tech (MCIT)</div>
+        </div>
+        <div class="cert-year">2025</div>
+      </div>
+      <div class="cert-item">
+        <div>
+          <div class="cert-name">Data Science, Analytics & AI for Beginners</div>
+          <div class="cert-provider">HP LIFE Academy</div>
+        </div>
+        <div class="cert-year">2025</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical & Pedagogical Skills -->
+  <section class="section">
+    <h2 class="section-title">Technical & Pedagogical Skills</h2>
+    <table class="skills-list">
+      <tr>
+        <td class="skill-group">Programming & Scripting</td>
+        <td class="skill-desc">Python, C++, Java, R, SQL (T-SQL, PostgreSQL, MySQL), PHP, JavaScript, HTML5, CSS3, Shell/Bash</td>
+      </tr>
+      <tr>
+        <td class="skill-group">AI & Deep Learning</td>
+        <td class="skill-desc">PyTorch, TensorFlow, Keras, Scikit-learn, LangChain, OpenCV, YOLO, SAM 2, Hugging Face, Gemini API, RAG, ChromaDB</td>
+      </tr>
+      <tr>
+        <td class="skill-group">Data & Analytics</td>
+        <td class="skill-desc">Pandas, NumPy, Matplotlib, Seaborn, Power BI, DAX, Power Query, Advanced Excel (PivotTables, Lookups)</td>
+      </tr>
+      <tr>
+        <td class="skill-group">Databases & Systems</td>
+        <td class="skill-desc">Microsoft SQL Server (SSMS), PostgreSQL, MySQL, Cisco Packet Tracer, Windows Administration, Linux Environment</td>
+      </tr>
+      <tr>
+        <td class="skill-group">Leadership & Pedagogy</td>
+        <td class="skill-desc">Technical Team Leadership, Undergraduate Lab Instruction, Problem Set Preparation, Code Review, Student Mentorship</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- Honors, Leadership & Languages -->
+  <section class="section">
+    <h2 class="section-title">Honors, Leadership & Languages</h2>
+    <ul class="entry-bullets">
+      <li><strong>Academic Honors:</strong> Graduated with 99% score from NTI Digital Egypt Youth Program; Top 5 Finalist in the National Data Challenge (500+ participants nationwide); 4-year Faculty Honor Roll at Sinai University (Cumulative GPA: 3.553 / 4.00).</li>
+      <li><strong>Leadership & Entrepreneurship:</strong> Founder and Team Leader for RefereeX, directing AI engineering and competing in the Canal Startup Sprint Hackathon; Team Leader for LungGuide AI at the CREATIVA Hackathon; led university study and lab groups.</li>
+      <li><strong>Languages:</strong> <strong>Arabic</strong> (Native); <strong>English</strong> (Upper-Intermediate / Professional Academic Proficiency for lecturing, technical lab instructions, and scientific research); <strong>French</strong> (Elementary / A1).</li>
+      <li><strong>Academic References:</strong> Available from faculty professors and department supervisors at the Faculty of Information Technology and Computer Science, Sinai University upon request.</li>
+    </ul>
+  </section>
+
+</body>
+</html>

@@ -151,6 +151,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const data = await response.json();
 
         if (data.success === "true" || data.success === true) {
+          if (typeof window.trackEvent === "function") {
+            window.trackEvent("contact_form_submit", {
+              event_category: "Contact",
+              event_label: "Form Submitted Successfully"
+            });
+          }
           if (formStatus) {
             formStatus.textContent = "✔ Thank you! Your message has been sent successfully. I will get back to you soon!";
             formStatus.className = "form-status success";
